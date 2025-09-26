@@ -12,22 +12,22 @@
 
         <form action="/predict" method="post">
             <label>Age:</label>
-            <input type="number" name="age" step="1" min="0" value="23" required>
+            <input type="number" name="age" step="1" min="0" value="40" required>
             <small>Enter your age in years.</small>
 
             <label>Gender:</label>
             <select name="sex" required>
                 <option value="1">Male</option>
-                <option value="0">Female</option>
+                <option value="0" selected>Female</option>
             </select>
             <small>Select your biological sex.</small>
 
             <label>Chest Pain Type:</label>
             <select name="cp" required>
-                <option value="0">Typical Angina</option>
+                <option value="0" selected>Typical Angina</option>
                 <option value="1">Atypical Angina</option>
                 <option value="2">Non-anginal Pain</option>
-                <option value="3" selected>Asymptomatic</option>
+                <option value="3">Asymptomatic</option>
             </select>
             <small>Type of chest pain experienced during exertion.</small>
 
@@ -36,7 +36,7 @@
             <small>Typical healthy range is 90-120 mm Hg.</small>
 
             <label>Cholesterol (mg/dl):</label>
-            <input type="number" name="chol" min="100" max="300" value="200" required>
+            <input type="number" name="chol" min="100" max="300" value="180" required>
             <small>Normal level is around 200 mg/dl.</small>
 
             <label>Fasting Blood Sugar > 120 mg/dl:</label>
@@ -55,7 +55,7 @@
             <small>Electrocardiogram result at rest.</small>
 
             <label>Max Heart Rate Achieved:</label>
-            <input type="number" name="thalach" min="60" max="220" value="150" required>
+            <input type="number" name="thalach" min="60" max="220" value="160" required>
             <small>Maximum heart rate during exercise test.</small>
 
             <label>Exercise Induced Angina:</label>
