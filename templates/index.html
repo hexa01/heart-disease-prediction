@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <p>Fill out the form below to check your heart health. Default values are provided for less-known measurements.</p>
+
+        <form action="/predict" method="post">
+            <label>Age:</label>
+            <input type="number" name="age" step="1" min="0" value="23" required>
+            <small>Enter your age in years.</small>
+
+            <label>Gender:</label>
+            <select name="sex" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+            <small>Select your biological sex.</small>
+
+            <label>Chest Pain Type:</label>
+            <select name="cp" required>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-anginal Pain</option>
+                <option value="3" selected>Asymptomatic</option>
+            </select>
+            <small>Type of chest pain experienced during exertion.</small>
+
+            <label>Resting Blood Pressure (mm Hg):</label>
+            <input type="number" name="trestbps" min="80" max="180" value="120" required>
+            <small>Typical healthy range is 90-120 mm Hg.</small>
+
+            <label>Cholesterol (mg/dl):</label>
+            <input type="number" name="chol" min="100" max="300" value="200" required>
+            <small>Normal level is around 200 mg/dl.</small>
+
+            <label>Fasting Blood Sugar > 120 mg/dl:</label>
+            <select name="fbs" required>
+                <option value="0" selected>No</option>
+                <option value="1">Yes</option>
+            </select>
+            <small>Select yes if fasting blood sugar is above 120 mg/dl.</small>
+
+            <label>Resting ECG Results:</label>
+            <select name="restecg" required>
+                <option value="0" selected>Normal</option>
+                <option value="1">ST-T wave abnormality</option>
+                <option value="2">Left ventricular hypertrophy</option>
+            </select>
+            <small>Electrocardiogram result at rest.</small>
+
+            <label>Max Heart Rate Achieved:</label>
+            <input type="number" name="thalach" min="60" max="220" value="150" required>
+            <small>Maximum heart rate during exercise test.</small>
+
+            <label>Exercise Induced Angina:</label>
+            <select name="exang" required>
+                <option value="0" selected>No</option>
+                <option value="1">Yes</option>
+            </select>
+            <small>Whether chest pain occurs with exercise.</small>
+
+            <label>Oldpeak (ST depression):</label>
+            <select name="oldpeak" required>
+                <option value="0.0" selected>0.0 - Normal</option>
+                <option value="0.5">0.5 - Slight</option>
+                <option value="1.0">1.0 - Moderate</option>
+                <option value="1.5">1.5 - High</option>
+                <option value="2.0">2.0+</option>
+            </select>
+            <small>ST depression during exercise. Higher numbers indicate more stress on the heart.</small>
+
+            <label>Slope of ST segment:</label>
+            <select name="slope" required>
+                <option value="0" selected>Upsloping</option>
+                <option value="1">Flat</option>
+                <option value="2">Downsloping</option>
+            </select>
+            <small>Slope of the ST segment during peak exercise.</small>
+
+            <label>Number of Major Vessels (0-4):</label>
+            <input type="number" name="ca" min="0" max="4" value="0" required>
+            <small>Number of major blood vessels colored by fluoroscopy. Healthy people usually have 0.</small>
+
+            <label>Thalassemia (Thal):</label>
+            <select name="thal" required>
+                <option value="1" selected>Normal</option>
+                <option value="2">Fixed Defect</option>
+                <option value="3">Reversable Defect</option>
+            </select>
+            <small>Blood disorder affecting hemoglobin. Normal is the default.</small>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Prediction: {{ result }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
