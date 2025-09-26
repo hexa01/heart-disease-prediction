@@ -7,102 +7,125 @@
 </head>
 <body>
     <div class="container">
-        <h1>Heart Disease Prediction</h1>
-        <p>Fill out the form below to check your heart health. Default values are provided for less-known measurements.</p>
+        <div class="header">
+            <h1>❤️ Heart Disease Prediction</h1>
+            <p>Fill out the form below to check your heart health. Default values are provided for a healthy profile.</p>
+        </div>
 
-        <form action="/predict" method="post">
-            <label>Age:</label>
-            <input type="number" name="age" step="1" min="0" value="40" required>
-            <small>Enter your age in years.</small>
+        <div class="form-content">
+            <form action="/predict" method="post">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label>🎂 Age:</label>
+                        <input type="number" name="age" step="1" min="0" value="30" required>
+                        <small>Enter your age in years.</small>
+                    </div>
 
-            <label>Gender:</label>
-            <select name="sex" required>
-                <option value="1">Male</option>
-                <option value="0" selected>Female</option>
-            </select>
-            <small>Select your biological sex.</small>
+                    <div class="form-field">
+                        <label>⚧️ Gender (1=Male, 0=Female):</label>
+                        <input type="number" name="sex" min="0" max="1" value="0" required>
+                        <small>Enter 1 for Male, 0 for Female.</small>
+                    </div>
 
-            <label>Chest Pain Type:</label>
-            <select name="cp" required>
-                <option value="0" selected>Typical Angina</option>
-                <option value="1">Atypical Angina</option>
-                <option value="2">Non-anginal Pain</option>
-                <option value="3">Asymptomatic</option>
-            </select>
-            <small>Type of chest pain experienced during exertion.</small>
+                    <div class="form-field">
+                        <label>💔 Chest Pain Type (0-3):</label>
+                        <input type="number" name="cp" min="0" max="3" value="0" required>
+                        <small>0=Typical, 1=Atypical, 2=Non-anginal, 3=Asymptomatic</small>
+                    </div>
 
-            <label>Resting Blood Pressure (mm Hg):</label>
-            <input type="number" name="trestbps" min="80" max="180" value="120" required>
-            <small>Typical healthy range is 90-120 mm Hg.</small>
+                    <div class="form-field">
+                        <label>🩺 Resting Blood Pressure (mm Hg):</label>
+                        <input type="number" name="trestbps" min="80" max="180" value="120" required>
+                        <small>Healthy range: 90-120 mm Hg.</small>
+                    </div>
 
-            <label>Cholesterol (mg/dl):</label>
-            <input type="number" name="chol" min="100" max="300" value="180" required>
-            <small>Normal level is around 200 mg/dl.</small>
+                    <div class="form-field">
+                        <label>🧪 Cholesterol (mg/dl):</label>
+                        <input type="number" name="chol" min="100" max="300" value="180" required>
+                        <small>Normal level: ~180 mg/dl.</small>
+                    </div>
 
-            <label>Fasting Blood Sugar > 120 mg/dl:</label>
-            <select name="fbs" required>
-                <option value="0" selected>No</option>
-                <option value="1">Yes</option>
-            </select>
-            <small>Select yes if fasting blood sugar is above 120 mg/dl.</small>
+                    <div class="form-field">
+                        <label>🍯 Fasting Blood Sugar > 120 mg/dl (0=No, 1=Yes):</label>
+                        <input type="number" name="fbs" min="0" max="1" value="0" required>
+                        <small>0 = Normal, 1 = High</small>
+                    </div>
 
-            <label>Resting ECG Results:</label>
-            <select name="restecg" required>
-                <option value="0" selected>Normal</option>
-                <option value="1">ST-T wave abnormality</option>
-                <option value="2">Left ventricular hypertrophy</option>
-            </select>
-            <small>Electrocardiogram result at rest.</small>
+                    <div class="form-field">
+                        <label>📈 Resting ECG Results (0-2):</label>
+                        <input type="number" name="restecg" min="0" max="2" value="0" required>
+                        <small>0=Normal, 1=ST-T abnormality, 2=LV hypertrophy</small>
+                    </div>
 
-            <label>Max Heart Rate Achieved:</label>
-            <input type="number" name="thalach" min="60" max="220" value="160" required>
-            <small>Maximum heart rate during exercise test.</small>
+                    <div class="form-field">
+                        <label>💓 Max Heart Rate Achieved:</label>
+                        <input type="number" name="thalach" min="60" max="220" value="170" required>
+                        <small>Higher is generally better.</small>
+                    </div>
 
-            <label>Exercise Induced Angina:</label>
-            <select name="exang" required>
-                <option value="0" selected>No</option>
-                <option value="1">Yes</option>
-            </select>
-            <small>Whether chest pain occurs with exercise.</small>
+                    <div class="form-field">
+                        <label>🏃 Exercise Induced Angina (0=No, 1=Yes):</label>
+                        <input type="number" name="exang" min="0" max="1" value="0" required>
+                        <small>0 = No chest pain on exercise</small>
+                    </div>
 
-            <label>Oldpeak (ST depression):</label>
-            <select name="oldpeak" required>
-                <option value="0.0" selected>0.0 - Normal</option>
-                <option value="0.5">0.5 - Slight</option>
-                <option value="1.0">1.0 - Moderate</option>
-                <option value="1.5">1.5 - High</option>
-                <option value="2.0">2.0+</option>
-            </select>
-            <small>ST depression during exercise. Higher numbers indicate more stress on the heart.</small>
+                    <div class="form-field">
+                        <label>📊 Oldpeak (ST depression):</label>
+                        <input type="number" name="oldpeak" step="0.1" min="0" max="6" value="0.0" required>
+                        <small>0 = Normal, higher = more stress</small>
+                    </div>
 
-            <label>Slope of ST segment:</label>
-            <select name="slope" required>
-                <option value="0" selected>Upsloping</option>
-                <option value="1">Flat</option>
-                <option value="2">Downsloping</option>
-            </select>
-            <small>Slope of the ST segment during peak exercise.</small>
+                    <div class="form-field">
+                        <label>📉 Slope of ST segment (0-2):</label>
+                        <input type="number" name="slope" min="0" max="2" value="0" required>
+                        <small>0=Upsloping, 1=Flat, 2=Downsloping</small>
+                    </div>
 
-            <label>Number of Major Vessels (0-4):</label>
-            <input type="number" name="ca" min="0" max="4" value="0" required>
-            <small>Number of major blood vessels colored by fluoroscopy. Healthy people usually have 0.</small>
+                    <div class="form-field">
+                        <label>🫀 Number of Major Vessels (0-4):</label>
+                        <input type="number" name="ca" min="0" max="4" value="0" required>
+                        <small>0 = Healthy</small>
+                    </div>
 
-            <label>Thalassemia (Thal):</label>
-            <select name="thal" required>
-                <option value="1" selected>Normal</option>
-                <option value="2">Fixed Defect</option>
-                <option value="3">Reversable Defect</option>
-            </select>
-            <small>Blood disorder affecting hemoglobin. Normal is the default.</small>
+                    <div class="form-field">
+                        <label>🩸 Thalassemia (1=Normal, 2=Fixed Defect, 3=Reversable Defect):</label>
+                        <input type="number" name="thal" min="1" max="3" value="1" required>
+                        <small>1 = Normal</small>
+                    </div>
+                </div>
 
-            <button type="submit">Predict</button>
-        </form>
+                <div class="submit-section">
+                    <button type="submit" onclick="this.classList.add('loading')">Predict Heart Health</button>
+                </div>
+            </form>
 
-        {% if result %}
-            <div class="result">
-                <h2>Prediction: {{ result }}</h2>
+            {% if result %}
+                <div class="result">
+                    <h2>🎯 Prediction: {{ result }}</h2>
+                </div>
+            {% endif %}
+
+            <div class="health-tips">
+                <strong>💡 Health Tip:</strong> Regular exercise, a balanced diet, and routine check-ups are key to maintaining heart health!
             </div>
-        {% endif %}
+        </div>
     </div>
+
+    <script>
+        document.querySelectorAll('input').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.closest('.form-field').style.transform = 'translateY(-2px)';
+                this.closest('.form-field').style.transition = 'transform 0.3s ease';
+            });
+            element.addEventListener('blur', function() {
+                this.closest('.form-field').style.transform = 'translateY(0)';
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const button = document.querySelector('button[type="submit"]');
+            button.innerHTML = 'Analyzing...';
+        });
+    </script>
 </body>
 </html>
