@@ -9,7 +9,7 @@
     <div class="container">
         <div class="header">
             <h1>❤️ Heart Disease Prediction</h1>
-            <p>Fill out the form below to check your heart health. Default values are provided for a healthy profile.</p>
+            <p>Fill out the form below to check your heart health. Default values are provided for a sample profile.</p>
         </div>
 
         <div class="form-content">
@@ -17,13 +17,13 @@
                 <div class="form-grid">
                     <div class="form-field">
                         <label>🎂 Age:</label>
-                        <input type="number" name="age" step="1" min="0" value="30" required>
+                        <input type="number" name="age" step="1" min="0" value="52" required>
                         <small>Enter your age in years.</small>
                     </div>
 
                     <div class="form-field">
                         <label>⚧️ Gender (1=Male, 0=Female):</label>
-                        <input type="number" name="sex" min="0" max="1" value="0" required>
+                        <input type="number" name="sex" min="0" max="1" value="1" required>
                         <small>Enter 1 for Male, 0 for Female.</small>
                     </div>
 
@@ -35,13 +35,13 @@
 
                     <div class="form-field">
                         <label>🩺 Resting Blood Pressure (mm Hg):</label>
-                        <input type="number" name="trestbps" min="80" max="180" value="120" required>
+                        <input type="number" name="trestbps" min="80" max="180" value="125" required>
                         <small>Healthy range: 90-120 mm Hg.</small>
                     </div>
 
                     <div class="form-field">
                         <label>🧪 Cholesterol (mg/dl):</label>
-                        <input type="number" name="chol" min="100" max="300" value="180" required>
+                        <input type="number" name="chol" min="100" max="300" value="212" required>
                         <small>Normal level: ~180 mg/dl.</small>
                     </div>
 
@@ -53,13 +53,13 @@
 
                     <div class="form-field">
                         <label>📈 Resting ECG Results (0-2):</label>
-                        <input type="number" name="restecg" min="0" max="2" value="0" required>
+                        <input type="number" name="restecg" min="0" max="2" value="1" required>
                         <small>0=Normal, 1=ST-T abnormality, 2=LV hypertrophy</small>
                     </div>
 
                     <div class="form-field">
                         <label>💓 Max Heart Rate Achieved:</label>
-                        <input type="number" name="thalach" min="60" max="220" value="170" required>
+                        <input type="number" name="thalach" min="60" max="220" value="168" required>
                         <small>Higher is generally better.</small>
                     </div>
 
@@ -71,25 +71,25 @@
 
                     <div class="form-field">
                         <label>📊 Oldpeak (ST depression):</label>
-                        <input type="number" name="oldpeak" step="0.1" min="0" max="6" value="0.0" required>
+                        <input type="number" name="oldpeak" step="0.1" min="0" max="6" value="1.0" required>
                         <small>0 = Normal, higher = more stress</small>
                     </div>
 
                     <div class="form-field">
                         <label>📉 Slope of ST segment (0-2):</label>
-                        <input type="number" name="slope" min="0" max="2" value="0" required>
+                        <input type="number" name="slope" min="0" max="2" value="2" required>
                         <small>0=Upsloping, 1=Flat, 2=Downsloping</small>
                     </div>
 
                     <div class="form-field">
                         <label>🫀 Number of Major Vessels (0-4):</label>
-                        <input type="number" name="ca" min="0" max="4" value="0" required>
+                        <input type="number" name="ca" min="0" max="4" value="2" required>
                         <small>0 = Healthy</small>
                     </div>
 
                     <div class="form-field">
                         <label>🩸 Thalassemia (1=Normal, 2=Fixed Defect, 3=Reversable Defect):</label>
-                        <input type="number" name="thal" min="1" max="3" value="1" required>
+                        <input type="number" name="thal" min="1" max="3" value="3" required>
                         <small>1 = Normal</small>
                     </div>
                 </div>
